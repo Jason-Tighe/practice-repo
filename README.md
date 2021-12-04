@@ -4,3 +4,6 @@ Creating this repo to start recording some probelms from Leetcode that i either 
 
 Need to remind myself to add in other docs to practice other languages.
 Can i find a list of problems to plan ahead?
+
+
+I need to remember to post my leetcode
