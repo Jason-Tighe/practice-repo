@@ -13,3 +13,23 @@
     }
     return maxProduct
 }  */
+
+
+ var twoSum = function(nums, target) {
+ let answer = []
+ 
+   for(let x in nums){
+     for(let y in nums){
+       if(nums[x] + nums[y] === target){
+         answer.push([nums[x], nums[y]])
+       }
+     }
+   }
+
+  return answer
+
+}
+
+twoSum([2,7,11,15], 17)
+
+//one brute force test run
