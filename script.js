@@ -33,3 +33,37 @@
 twoSum([2,7,11,15], 17)
 
 //one brute force test run
+
+
+
+//Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn].
+//Return the array in the form [x1,y1,x2,y2,...,xn,yn].
+//My Longwinded answer
+var shuffle = function(nums, n) {
+  let x = []  
+  let y = []
+  let answer = []
+  for(let i = 0; i < nums.length; i++){
+    if(x.length < nums.length/2){
+       x.push(nums[i])
+    } else if(y.length <= nums.length/2){
+      y.push(nums[i])
+    }
+  }
+  for(let j = 0; j < n; j++){
+    answer.push(x[j])
+    answer.push(y[j])
+  }
+   console.log(answer)
+}
+
+shuffle([2,5,1,3,4,7],3)
+shuffle([1,2,3,4,4,3,2,1],4)
+shuffle([1,1,2,2],2)
+
+//Cleaner answer.
+//   let answer = []
+//   for(let i = 0; i < n; i++){
+//     answer.push(nums[i], nums[i+n])
+//   }
+//   console.log(answer)
