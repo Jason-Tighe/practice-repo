@@ -243,3 +243,52 @@ shuffle([1,1,2,2],2)
 // //   print(i, foo[(i % foo.count + foo.count) % foo.count])
 // // }
 
+//I liked this one, but it was a bit weird since i didn't know the tests until it returned 
+// Given an m x n matrix of distinct numbers, return all lucky numbers in the matrix in any order.
+
+// A lucky number is an element of the matrix such that it is the minimum element in its row and maximum in its column.
+
+
+var luckyNumbers  = function(matrix) {
+
+
+let rowMin = []
+let colMax = []
+let luckyNumber = []
+let test = Array.from(Array(matrix[0].length), () => new Array(matrix.length))
+
+  for(let i = 0; i < matrix.length; i++){
+    rowMin.push(Math.min(...matrix[i]))
+    for(let j = 0; j < matrix[0].length; j++){
+      test[j][i] = matrix[i][j]
+     
+    }
+    
+  }
+  
+  for(let i = 0; i < test.length; i++){
+    colMax.push(Math.max(...test[i]))
+  }
+  
+for(let i = 0; i < matrix[0].length; i++){
+  if(rowMin.includes(colMax[i])){
+    luckyNumber.push(colMax[i])
+    console.log(luckyNumber)
+  } else {
+    console.log(luckyNumber)
+    
+  }
+  // return luckyNumber
+}
+// console.log(colMax)
+// console.log(rowMin)
+// console.log(test)
+
+  
+};
+
+luckyNumbers([[3,7,8],[9,11,13],[15,16,17]])
+luckyNumbers([[7,8],[1,2]])
+luckyNumbers([[1,10,4,2],[9,3,8,7],[15,16,17,12]])
+luckyNumbers([[3,6],[7,1],[5,2],[4,8]])
+
