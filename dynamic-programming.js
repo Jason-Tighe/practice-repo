@@ -14,3 +14,19 @@ var fib = function(n) {
   }
   return start[n]  
 };
+
+// 1137. N-th Tribonacci Number
+// The Tribonacci sequence Tn is defined as follows: 
+
+// T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
+
+// Given n, return the value of Tn.
+
+//similar to the above, but this time with 1 additional requirement.
+var tribonacci = function(n) {
+  let start = [0, 1, 1]
+  for(let i = 0; i < n; i++) { 
+    start.push(  start[i] + start[i+1] + start[i+2])
+  }
+  return start[n]
+};
