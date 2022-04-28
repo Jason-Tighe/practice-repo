@@ -30,3 +30,21 @@ var tribonacci = function(n) {
   }
   return start[n]
 };
+
+
+// // 70. Climbing Stairs
+// You are climbing a staircase. It takes n steps to reach the top.
+
+// Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+//this is basically the fib sqeunce, but you start at 1,1 instead of 0,1. This is because there is always at least 1 way to get to the next step.Also you can look at it as 2 single steps, or 1 2step.
+
+var climbStairs = function(n) {
+  let start = [1, 1]
+  for(let i = 0; i < n; i++) { 
+    start.push(  start[i] + start[i+1])
+  }
+  console.log(start[n] )
+};
+
+climbStairs(2)
+climbStairs(3)
