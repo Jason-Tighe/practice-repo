@@ -70,46 +70,33 @@ var minCostClimbingStairs = function(cost) {
 // minCostClimbingStairs([1,100,1,1,1,100,1,1,100,1])
  
 //Having a bit of an issue...
-// var rob = function(nums) {
-//   let answer  = []
-//   if(nums.length === 0){
-//     return 0
-//   }
-//   if(nums.length === 1){
-//     return nums[0]
-//   }
-//   if(nums.length === 2){
-//     return Math.max(...nums)
-//   }
+ var rob = function(nums) {
+  let n = nums.length
+     //creating an array to hold possibilties 
+  let dp = []
 
-//   for (let i = 2; i < nums.length; i++) {
-//    nums[i]= Math.max((nums[i]+nums[i-2]),nums[i-1])
-//    answer.push(nums[i])
-//   }
-//     console.log(answer)
-//     console.log(answer[answer.length-1])
-//     // console.log(Math.max(...answer))
-// }
-var rob = function(nums) {
-  let rob1 = 0
-  let rob2 = 0
-  let n = 0
-  for (let i = 0; i < nums.length; i++){
-    let temp = Math.max(nums[n] + nums[rob1], nums[rob2])
-    n = i
-    rob1 = rob2
-    rob2 = n
-    console.log(temp)
-     
-  }
-  console.log(n)
-  console.log(rob1)
-  console.log(rob2)
-  // console.log(Math.max(nums[n] + nums[rob1], nums[rob2]))
+    //simple checks
+   if( n==1 ){
+            return nums[0];
+        }else if(n == 0){
+            return 0;
+        }else if(n == 2){
+            return Math.max(nums[0],nums[1]);
+        }
+   
+      //storing simple checks
+        dp[0] = nums[0];
+        dp[1] = nums[1];
+        dp[2] = nums[2] + nums[0];
+        for(let i=3; i<n; i++){
+            //addes to the array combinations
+            dp[i] = Math.max(dp[i-2],dp[i-3]) + nums[i];
+        }
+    console.log(dp)
+    console.log(Math.max(dp[n-1],dp[n-2]))
 }
 
-rob([1, 2, 3, 1])
-// rob([2, 7, 9, 3, 1])
+// rob([1, 2, 3, 1])
+rob([2, 7, 9, 3, 1])
 // rob([1, 2])
 // rob([2,1,1, 2])
-
