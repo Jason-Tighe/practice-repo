@@ -69,3 +69,47 @@ var minCostClimbingStairs = function(cost) {
 // minCostClimbingStairs([10, 15, 20])
 // minCostClimbingStairs([1,100,1,1,1,100,1,1,100,1])
  
+//Having a bit of an issue...
+// var rob = function(nums) {
+//   let answer  = []
+//   if(nums.length === 0){
+//     return 0
+//   }
+//   if(nums.length === 1){
+//     return nums[0]
+//   }
+//   if(nums.length === 2){
+//     return Math.max(...nums)
+//   }
+
+//   for (let i = 2; i < nums.length; i++) {
+//    nums[i]= Math.max((nums[i]+nums[i-2]),nums[i-1])
+//    answer.push(nums[i])
+//   }
+//     console.log(answer)
+//     console.log(answer[answer.length-1])
+//     // console.log(Math.max(...answer))
+// }
+var rob = function(nums) {
+  let rob1 = 0
+  let rob2 = 0
+  let n = 0
+  for (let i = 0; i < nums.length; i++){
+    let temp = Math.max(nums[n] + nums[rob1], nums[rob2])
+    n = i
+    rob1 = rob2
+    rob2 = n
+    console.log(temp)
+     
+  }
+  console.log(n)
+  console.log(rob1)
+  console.log(rob2)
+  // console.log(Math.max(nums[n] + nums[rob1], nums[rob2]))
+}
+
+rob([1, 2, 3, 1])
+// rob([2, 7, 9, 3, 1])
+// rob([1, 2])
+// rob([2,1,1, 2])
+
