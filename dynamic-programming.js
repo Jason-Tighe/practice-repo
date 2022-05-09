@@ -100,3 +100,62 @@ var minCostClimbingStairs = function(cost) {
 rob([2, 7, 9, 3, 1])
 // rob([1, 2])
 // rob([2,1,1, 2])
+
+
+
+
+//213. House Robber II
+//You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Meanwhile, adjacent houses have a security system connected, and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+// Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
+
+
+//Essentially, you want to take the orginal array and break it up into sub arrays. I broke mine up into 2 sub arrays. the first which excludes the last value and the second sub array which excludes the first value. 
+//From there we are in the "same" position as the previous problem, so we just use it as a funciton and pass each sub array through it and find the max between them.
+ 
+var rob = function(cost) {
+  let l = cost.length;
+  let sub1 = []
+  let sub2 = []
+
+     if (l == 1) {
+      return cost[0];
+    } else if (l == 0) {
+      return 0;
+    } else if (l == 2) {
+      return Math.max(cost[0], cost[1]);
+    }
+
+
+  for (let i = 0; i < l - 1; i++) {
+    sub1.push(cost[i])
+  }
+
+  let x = cost.reverse()
+  for (let i = 0; i < l - 1; i++) {
+    sub2.push(x[i])
+  }
+
+  var robSub = function(nums) {
+    let n = nums.length
+    //creating an array to hold possibilties 
+    let dp = []
+
+    //simple checks
+ 
+    //storing simple checks
+    dp[0] = nums[0];
+    dp[1] = nums[1];
+    dp[2] = nums[2] + nums[0];
+    for (let i = 3; i < n; i++) {
+      //addes to the array combinations
+      dp[i] = Math.max(dp[i - 2], dp[i - 3]) + nums[i];
+    }
+    // console.log(dp)
+    return (Math.max(dp[n - 1], dp[n - 2]))
+  }
+
+
+  console.log(Math.max(robSub(sub1), robSub(sub2)))
+};
+
