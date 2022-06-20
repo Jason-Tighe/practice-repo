@@ -82,3 +82,29 @@ var merge = function(nums1, m, nums2, n) {
 merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3)
 
 merge([0], 0, [1], 1)
+
+
+//Intersection of Two arrays. 
+
+//Woridng really messed me up on this, was very unsure what they meant by intersecting. After a bunch of review for what they were looking for it became a lot clearer, but how to get there, not so much.
+//I def need to work harder on hashmaps.
+var intersect = function(nums1, nums2) {
+     let obj = {}
+ let result = []
+  //make a hashmap of the first array of nums
+for(let i of nums1){
+  if(!obj[i]){
+    obj[i] = 1
+  } else {
+    obj[i]++
+  }
+}  
+  //loop through the second array of nums and see if the hashmap has a count of the value.
+for(let i of nums2){
+  if(obj[i] > 0){
+    result.push(i)
+    obj[i]--
+  }
+}
+  return result
+};
