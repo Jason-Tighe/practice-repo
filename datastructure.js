@@ -108,3 +108,23 @@ for(let i of nums2){
 }
   return result
 };
+
+//This was weird, because I had the code correct, but it wasn't working. I think it's because of where i declared the buy
+
+var maxProfit = function(prices) {
+  
+ let maxP = 0
+ 
+   let buy = prices[0]
+  for(let i = 1;  i < prices.length; i++){
+   
+    let sell = prices[i]
+    let profit = sell - buy
+
+    maxP = Math.max(maxP, profit)
+    if(sell < buy) buy = sell
+  }
+  return maxP
+}
+
+maxProfit([7, 1, 5, 3, 6, 4])
