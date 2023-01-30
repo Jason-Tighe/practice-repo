@@ -71,3 +71,23 @@ let newS = s.split(" ").join("").toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "").spl
 
 isPalindrome("A man, a plan, a canal: Panama")
 isPalindrome("race a car")
+
+//Group anagrams
+//we're going to sort each object in the array and use that sorted word as a way to goup them
+//maps[s] = [] is new to me
+var groupAnagrams = function(strs) {
+   
+  let map = {}
+
+  for(let i = 0; i <strs.length; i++){
+     let s = strs[i].split('').sort().join('')
+     // console.log(s)
+     console.log(map[s])
+     if(!map[s]) map[s] = []
+     map[s].push(strs[i])
+  }
+  console.log(map)
+};
+
+
+groupAnagrams(["eat","tea","tan","ate","nat","bat"])
