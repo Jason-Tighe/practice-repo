@@ -91,3 +91,19 @@ var groupAnagrams = function(strs) {
 
 
 groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+
+
+//using what we learned last problem we're maping them out and grouping them accordingly. We'll have to compare each to each, OR sort by length? 
+var topKFrequent = function(nums, k) {
+  let map = {}
+
+  for(let i = 0; i <nums.length; i++){
+     if(!map[nums[i]]) map[nums[i]] = []
+     map[nums[i]].push(nums[i])
+  }
+  console.log(map)
+//in progress
+  
+};
+
+topKFrequent([1,1,1,2,2,3], 2)
