@@ -6,5 +6,4 @@ Need to remind myself to add in other docs to practice other languages.
 Can i find a list of problems to plan ahead?1
 
 
-I need to remember to post my leetcode...
-need to do more neetcode
+I need to remember to post my leetcode. need to continue to do more neetcode
